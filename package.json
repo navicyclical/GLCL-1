@@ -25,5 +25,9 @@
     "gulp-concat-css": "latest",
     "gulp-clean-css": "latest",
     "gulp-babel": "latest"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0"
   }
 }

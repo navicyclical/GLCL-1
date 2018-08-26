@@ -1,27 +1,22 @@
 .button{
-<<<<<<< class3
   background-color:unset;
-=======
   background-color: blue;
->>>>>>> master
   height:40px;
   width:80px;
-<<<<<<< HEAD
   display: inline-block;
   margin: 10px 10px;
-  p{color: #505253}
-
+  p{
+    color: #505253
+  }
   	&.round{
   	background-color: unset;
   	height: 37.5px;
   	width:37.5px;
   	border-radius:50%;
-	border: 4px solid gold;
-	  
-	 
-	  &.disabled{
+	  border: 4px solid gold;
+    &.disabled{
 	  	border: 3px solid #F4CC61;
-      opacity: 0.5; 
+      opacity: 0.5;
 	  	p {
 	  		opacity: 50%;
 	  	}
@@ -30,7 +25,7 @@
 		  background-color: gold;
 		  p{
 			color: #4C4F53;
-		  } 
+		  }
 	  }
 	  p{
     	vertical-align: middle;
@@ -40,79 +35,69 @@
     	color: #F4CC61;
     	font-size: 40px;
     }
-
-=======
-  border: 4px solid black;
-  display: inline-block;
-  margin: 0 10px;
-  &.round{
-    background-color: unset;
-    width:37.5px;
-    height:37.5px;
-    border-radius:50%;
-    border: 4px solid gold;
-    &.disabled{
-      border: 4px solid darkgoldenrod;
-      p{
-        color: darkgoldenrod;
-      }
-    }
-  }
-  p{
-    margin: auto;
-    vertical-align: middle;
-    text-align: center;
-    color: gold;
-    font-size: 31px;
->>>>>>> 6a9f70d83d08d7afa475bdc3a3a6521caa2e32dc
-  }
-
-  &.square {
-    height: 45px;
-    width: 300px;
-    border-radius: 50px;
-    border: 3px solid #F4CC61;
-    margin-bottom: 20px; 
-
-    p {
-      vertical-align: middle;
-      margin: auto;
-      text-align: center;
-      line-height: 45px;
-      color: #4B4F53;
-      font-size: 14px;
-    }
-
-    i{
-      color: #4B4F53;
-      font-weight: 900;
-      margin: auto 125px;
-      vertical-align: middle;
-      font-size: 25px;
-      line-height: 15px;
-      border-radius: 20px;
-      padding: 15px;
-
-      &.gold-check {
-        color: #F4CC61;
-      }
-    }
-
-    &.inactive {
-      background-color: white;
-      border: 3px solid white;
-      margin-top: 20px;
-        p {
-          color: lightgrey;
+    border: 4px solid black;
+    display: inline-block;
+    margin: 0 10px;
+    &.round{
+      background-color: unset;
+      width:37.5px;
+      height:37.5px;
+      border-radius:50%;
+      border: 4px solid gold;
+      &.disabled{
+        border: 4px solid darkgoldenrod;
+        p{
+          color: darkgoldenrod;
         }
-
+      }
     }
+    p{
+      margin: auto;
+      vertical-align: middle;
+      text-align: center;
+      color: gold;
+      font-size: 31px;
+    }
+    &.square {
+      height: 45px;
+      width: 300px;
+      border-radius: 50px;
+      border: 3px solid #F4CC61;
+      margin-bottom: 20px;
 
+      p {
+        vertical-align: middle;
+        margin: auto;
+        text-align: center;
+        line-height: 45px;
+        color: #4B4F53;
+        font-size: 14px;
+      }
+      i{
+        color: #4B4F53;
+        font-weight: 900;
+        margin: auto 125px;
+        vertical-align: middle;
+        font-size: 25px;
+        line-height: 15px;
+        border-radius: 20px;
+        padding: 15px;
+
+        &.gold-check {
+          color: #F4CC61;
+        }
+      }
+      &.inactive {
+        background-color: white;
+        border: 3px solid white;
+        margin-top: 20px;
+          p {
+            color: lightgrey;
+          }
+      }
     &.normal {
       background-color: #F4CC61;
-
     }
-
     &.hover {
       background-color: #F5D67C;
       border: 3px solid #F5D67C;
@@ -120,19 +105,16 @@
           color: #717271;
         }
     }
-
     &.hoverLight {
       background-color: #8D7E53;
         p {
           color: #F4CC61;
         }
     }
-
     &.click {
       background-color: #BEA04B;
       border: 3px solid #BEA04B;
     }
-
     &.dark {
       p {
         color: #F4CC61;
@@ -159,8 +141,8 @@
 			p{color: #BCBFC7;}
 			}
 			&.gold {
-			background-color: gold;	
-			
+			background-color: gold;
+
 			}
 			&.goldlight {
 				background-color: #F0D77C
@@ -192,10 +174,5 @@
 			}
 		}
 	}
-
-
-
-  
-
 }
-
+}

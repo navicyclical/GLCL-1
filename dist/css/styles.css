@@ -4,31 +4,26 @@
 }
 .button {
   background-color: unset;
+  background-color: blue;
   height: 40px;
   width: 80px;
-<<<<<<< HEAD
   display: inline-block;
   margin: 10px 10px;
 }
 
 .button p {
   color: #505253;
-=======
-  border: 4px solid black;
-  display: inline-block;
-  margin: 0 10px;
->>>>>>> 6a9f70d83d08d7afa475bdc3a3a6521caa2e32dc
 }
 
 .button.round {
   background-color: unset;
-<<<<<<< HEAD
   height: 37.5px;
   width: 37.5px;
   border-radius: 50%;
-  border: 3px solid #F4CC61;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  border: 4px solid gold;
+  border: 4px solid black;
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .button.round.disabled {
@@ -38,14 +33,6 @@
 
 .button.round.disabled p {
   opacity: 50%;
-}
-
-.button.round.filled {
-  background-color: #F4CC61;
-}
-
-.button.round.filled p {
-  color: #4B4F53;
 }
 
 .button.round.filled {
@@ -65,7 +52,31 @@
   font-size: 40px;
 }
 
-.button.square {
+.button.round.round {
+  background-color: unset;
+  width: 37.5px;
+  height: 37.5px;
+  border-radius: 50%;
+  border: 4px solid gold;
+}
+
+.button.round.round.disabled {
+  border: 4px solid darkgoldenrod;
+}
+
+.button.round.round.disabled p {
+  color: darkgoldenrod;
+}
+
+.button.round p {
+  margin: auto;
+  vertical-align: middle;
+  text-align: center;
+  color: gold;
+  font-size: 31px;
+}
+
+.button.round.square {
   height: 45px;
   width: 300px;
   border-radius: 50px;
@@ -73,7 +84,7 @@
   margin-bottom: 20px;
 }
 
-.button.square p {
+.button.round.square p {
   vertical-align: middle;
   margin: auto;
   text-align: center;
@@ -82,7 +93,7 @@
   font-size: 14px;
 }
 
-.button.square i {
+.button.round.square i {
   color: #4B4F53;
   font-weight: 900;
   margin: auto 125px;
@@ -93,57 +104,57 @@
   padding: 15px;
 }
 
-.button.square i.gold-check {
+.button.round.square i.gold-check {
   color: #F4CC61;
 }
 
-.button.square.inactive {
+.button.round.square.inactive {
   background-color: white;
   border: 3px solid white;
   margin-top: 20px;
 }
 
-.button.square.inactive p {
+.button.round.square.inactive p {
   color: lightgrey;
 }
 
-.button.square.normal {
+.button.round.square.normal {
   background-color: #F4CC61;
 }
 
-.button.square.hover {
+.button.round.square.hover {
   background-color: #F5D67C;
   border: 3px solid #F5D67C;
 }
 
-.button.square.hover p {
+.button.round.square.hover p {
   color: #717271;
 }
 
-.button.square.hoverLight {
+.button.round.square.hoverLight {
   background-color: #8D7E53;
 }
 
-.button.square.hoverLight p {
+.button.round.square.hoverLight p {
   color: #F4CC61;
 }
 
-.button.square.click {
+.button.round.square.click {
   background-color: #BEA04B;
   border: 3px solid #BEA04B;
 }
 
-.button.square.dark p {
+.button.round.square.dark p {
   color: #F4CC61;
 }
 
-.button.square {
+.button.round.square {
   height: 45px;
   width: 250px;
   border-radius: 20px;
 }
 
-.button.square p {
+.button.round.square p {
   vertical-align: middle;
   margin: auto;
   text-align: center;
@@ -155,45 +166,45 @@
   padding: 15px;
 }
 
-.button.square.white {
+.button.round.square.white {
   background-color: white;
 }
 
-.button.square.white p {
+.button.round.square.white p {
   color: #BCBFC7;
 }
 
-.button.square.gold {
+.button.round.square.gold {
   background-color: gold;
 }
 
-.button.square.goldlight {
+.button.round.square.goldlight {
   background-color: #F0D77C;
 }
 
-.button.square.golddark {
+.button.round.square.golddark {
   background-color: darkgoldenrod;
 }
 
-.button.square.grey {
+.button.round.square.grey {
   background-color: #4C4F53;
   border: 3px solid gold;
 }
 
-.button.square.grey p {
+.button.round.square.grey p {
   color: gold;
 }
 
-.button.square.silver {
+.button.round.square.silver {
   background-color: #8C8155;
   border: 3px solid gold;
 }
 
-.button.square.silver p {
+.button.round.square.silver p {
   color: gold;
 }
 
-.button.square i {
+.button.round.square i {
   color: #4C4F53;
   font-weight: 900;
   margin: auto 100px;
@@ -204,30 +215,8 @@
   padding: 15px;
 }
 
-.button.square i.goldcheck {
+.button.round.square i.goldcheck {
   color: gold;
-=======
-  width: 37.5px;
-  height: 37.5px;
-  border-radius: 50%;
-  border: 4px solid gold;
-}
-
-.button.round.disabled {
-  border: 4px solid darkgoldenrod;
-}
-
-.button.round.disabled p {
-  color: darkgoldenrod;
-}
-
-.button p {
-  margin: auto;
-  vertical-align: middle;
-  text-align: center;
-  color: gold;
-  font-size: 31px;
->>>>>>> 6a9f70d83d08d7afa475bdc3a3a6521caa2e32dc
 }
 li {
   text-decoration: none;

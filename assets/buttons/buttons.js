@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 var fn = function (){
 	var minus = document.getElementsByClassName('minus');
 
@@ -10,7 +10,6 @@ for(var i = 0; i<minus.length; i++){
 
 };
 
-=======
 let minusFn = function(){
   let minus = document.getElementsByClassName('minus');
   console.log(minus);
@@ -22,5 +21,5 @@ let minusFn = function(){
     minus[i].appendChild(e);
   }
 }
->>>>>>> 6a9f70d83d08d7afa475bdc3a3a6521caa2e32dc
+
 document.addEventListener('DOMContentLoaded', fn, false);

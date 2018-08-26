@@ -1,18 +1,15 @@
 'use strict';
 
-<<<<<<< HEAD
 var fn = function fn() {
-	var minus = document.getElementsByClassName('minus');
+  var minus = document.getElementsByClassName('minus');
 
-	for (var i = 0; i < minus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '-';
-		minus[i].appendChild(e);
-	}
+  for (var i = 0; i < minus.length; i++) {
+    var e = document.createElement('p');
+    e.innerHTML = '-';
+    minus[i].appendChild(e);
+  }
 };
 
-document.addEventListener('DOMContentLoaded', fn, false);
-=======
 var minusFn = function minusFn() {
   var minus = document.getElementsByClassName('minus');
   console.log(minus);
@@ -24,7 +21,8 @@ var minusFn = function minusFn() {
     minus[i].appendChild(e);
   }
 };
->>>>>>> 6a9f70d83d08d7afa475bdc3a3a6521caa2e32dc
+
+document.addEventListener('DOMContentLoaded', fn, false);
 'use strict';
 
 var list = [];
