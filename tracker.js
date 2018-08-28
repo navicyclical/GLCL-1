@@ -4,13 +4,13 @@ let tracker = () => {
 	let totalTime = 0;
 	plus5.addEventListener('click', ()=>{
 		totalTime += 5;
-		counter.innerHTML = counter;
+		counter.innerHTML = totalTime;
 	});
 
 	let minus5 = document.getElementById('minus-5')
 	minus5.addEventListener('click', ()=>{
 		totalTime -= 5;
-		counter.innerHTML = counter;
+		counter.innerHTML = totalTime;
 	});
 };
 
