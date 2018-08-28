@@ -1,18 +1,16 @@
 let tracker = () => {
 	let plus5 = document.getElementById('plus-5')
 	let counter = document.getElementById('counter');
-	let i = 0;
+	let totalTime = 0;
 	min5.addEventListener('click', ()=>{
-		i += 5;
-		counter.innerHTML = i;
+		totalTime += 5;
+		counter.innerHTML = counter;
 	});
 
 	let minus5 = document.getElementById('minus-5')
-	let counter = document.getElementById('counter');
-	let i = 0;
 	min5.addEventListener('click', ()=>{
-		i += 5;
-		counter.innerHTML = i;
+		totalTime -= 5;
+		counter.innerHTML = counter;
 	});
 	console.log(min5);
 };
