@@ -12,7 +12,6 @@ let tracker = () => {
 		totalTime -= 5;
 		counter.innerHTML = counter;
 	});
-	console.log(min5);
 };
 
 document.addEventListener('DOMContentLoaded', tracker, false);
