@@ -195,16 +195,17 @@
   display: flex;
   justify-content: space-around;
 }
+.calendarHeader {
+  background-color: gray;
+  color: white;
+  display: flex;
+  flex-flow: center;
+  justify-content: space-around;
+}
 * {
   font-family: 'Nunito', sans-serif;
 }
 
 li {
   text-decoration: none;
-}
-.calendarHeader {
-  background-color: gray;
-  display: flex;
-  flex-flow: center;
-  justify-content: space-around;
 }

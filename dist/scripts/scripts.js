@@ -117,10 +117,45 @@ document.addEventListener('DOMContentLoaded', calendar, false);
 // };
 
 // document.addEventListener('DOMContentLoaded', calendar, false);
+"use strict";
+
+var calendarHeader = function calendarHeader() {
+  var currentMonth = document.getElementById("month");
+  var monthSetter = function monthSetter(monthName) {
+    currentMonth.innerHTML = monthName;
+  };
+  monthSetter("September");
+  var monthsInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  //add months
+  var monthUp = document.getElementById("monthUp");
+  monthUp.addEventListener('click', function () {
+    for (var i = 0; i < monthsInYear; i++) {
+      var singleMonth = monthsInYear[i];
+      if (currentMonth === singleMonth) {
+        monthSetter(monthsInYear[i + 1]);
+      } else if (currentMonth === "December") {
+        break;
+      }
+    }
+  });
+  //subtract months
+  var monthDown = document.getElementById("monthDown");
+  monthDown.addEventListener('click', function () {
+    for (var i = monthsInYear.length; i < 0; i--) {
+      var singleMonth = monthsInYear[i];
+      if (currentMonth === singleMonth) {
+        monthSetter(monthsInYear[i - 1]);
+      } else if (currentMonth === "January") {
+        break;
+      }
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', calendarHeader, false);
 'use strict';
 
 var list = [];
 var myFunkyFunk = function myFunkyFunk() {
   console.log('the funk');
 };
-"use strict";
