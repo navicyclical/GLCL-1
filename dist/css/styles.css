@@ -202,6 +202,10 @@
   flex-flow: center;
   justify-content: space-around;
 }
+
+.fa {
+  vertical-align: middle;
+}
 * {
   font-family: 'Nunito', sans-serif;
 }
