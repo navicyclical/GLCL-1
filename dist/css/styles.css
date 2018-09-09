@@ -190,11 +190,7 @@
 .button.square i.goldcheck {
   color: gold;
 }
-#calendar-head {
-  display: flex;
-  justify-content: space-around;
-}
-
+#calendar-head,
 .calendar-row {
   display: flex;
   justify-content: space-around;
@@ -205,4 +201,8 @@
 
 li {
   text-decoration: none;
+}
+.calendarHeader {
+  display: flex;
+  width: 250px;
 }

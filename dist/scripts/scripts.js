@@ -45,7 +45,7 @@ var calendar = function calendar() {
   var populateCalendarBody = function populateCalendarBody() {
     var daysInRow = 7;
     var totalRows = 5;
-    var totalDays = daysInRow * totalRows;
+    // var totalDays = daysInRow * totalRows;
     var currentRows = 0;
 
     while (currentRows < totalRows) {
@@ -61,10 +61,6 @@ var calendar = function calendar() {
     }
   };
   populateCalendarBody();
-
-  daysOfTheWeek.length; //7
-  daysOfTheWeek.length; //6
-
 };
 
 document.addEventListener('DOMContentLoaded', calendar, false);
@@ -74,3 +70,4 @@ var list = [];
 var myFunkyFunk = function myFunkyFunk() {
   console.log('the funk');
 };
+"use strict";
