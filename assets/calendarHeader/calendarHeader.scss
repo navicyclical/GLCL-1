@@ -1,6 +1,12 @@
+@import '../main';
+
 .calendarHeader{
-  background-color: lightgray;
-  color: white;
+  width: 250px;
   display: flex;
+  background-color: $tertiary;
+  color: white;
   justify-content: space-around;
+}
+.arrow{
+  cursor: pointer;
 }

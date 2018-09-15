@@ -117,42 +117,61 @@ document.addEventListener('DOMContentLoaded', calendar, false);
 // };
 
 // document.addEventListener('DOMContentLoaded', calendar, false);
-"use strict";
+'use strict';
 
 var calendarHeader = function calendarHeader() {
   var currentMonth = document.getElementById("month");
-  var monthSetter = function monthSetter(monthName) {
-    currentMonth.innerHTML = monthName;
+  var monthDown = document.getElementById('monthDown');
+  var monthUp = document.getElementById('monthUp');
+  var currentDate = new Date();
+  var monthIndex = currentDate.getMonth();
+  var monthSetter = function monthSetter(newMonth) {
+    currentMonth.innerHTML = newMonth;
   };
-  monthSetter("September");
   var monthsInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  //add months
-  var monthUp = document.getElementById("monthUp");
-  monthUp.addEventListener('click', function () {
-    for (var i = 0; i < monthsInYear; i++) {
-      var singleMonth = monthsInYear[i];
-      if (currentMonth === singleMonth) {
-        monthSetter(monthsInYear[i + 1]);
-      } else if (currentMonth === "December") {
-        break;
-      }
+  monthSetter(monthsInYear[monthIndex]);
+  monthDown.addEventListener('click', function () {
+    if (monthIndex > 0) {
+      monthIndex--;
+      monthSetter(monthsInYear[monthIndex]);
     }
   });
-  //subtract months
-  var monthDown = document.getElementById("monthDown");
-  monthDown.addEventListener('click', function () {
-    for (var i = monthsInYear.length; i < 0; i--) {
-      var singleMonth = monthsInYear[i];
-      if (currentMonth === singleMonth) {
-        monthSetter(monthsInYear[i - 1]);
-      } else if (currentMonth === "January") {
-        break;
-      }
+  monthUp.addEventListener('click', function () {
+    if (monthIndex < monthsInYear.length - 1) {
+      monthIndex++;
+      monthSetter(monthsInYear[monthIndex]);
     }
   });
 };
 
 document.addEventListener('DOMContentLoaded', calendarHeader, false);
+
+/*
+//add months
+let monthUp = document.getElementById("monthUp");
+monthUp.addEventListener('click', ()=>{
+  for (let i = 0; i < monthsInYear; i++){
+    let singleMonth = monthsInYear[i];
+    if (currentMonth === singleMonth){
+      monthSetter(monthsInYear[i + 1]);
+    } else if (currentMonth === "December"){
+      break;
+    }
+  }
+});
+//subtract months
+let monthDown = document.getElementById("monthDown");
+monthDown.addEventListener('click', ()=>{
+  for (let i = monthsInYear.length; i < 0; i--){
+    let singleMonth = monthsInYear[i];
+    if (currentMonth === singleMonth){
+      monthSetter(monthsInYear[i - 1]);
+    } else if (currentMonth === "January"){
+      break;
+    }
+  }
+});
+*/
 'use strict';
 
 var list = [];

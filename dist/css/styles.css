@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 * {
   font-family: 'Nunito', sans-serif;
 }
@@ -88,7 +89,7 @@
 }
 
 .button.square.inactive p {
-  color: lightgrey;
+  color: lightgray;
 }
 
 .button.square.normal {
@@ -195,11 +196,20 @@
   display: flex;
   justify-content: space-around;
 }
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 .calendarHeader {
+  width: 250px;
+  display: flex;
   background-color: lightgray;
   color: white;
-  display: flex;
   justify-content: space-around;
+}
+
+.arrow {
+  cursor: pointer;
 }
 * {
   font-family: 'Nunito', sans-serif;
