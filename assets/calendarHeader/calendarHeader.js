@@ -3,9 +3,9 @@ let calendarHeader = () => {
   let monthDown = document.getElementById('monthDown');
   let monthUp = document.getElementById('monthUp');
   let currentDate = new Date();
-  let monthIndex = currentDate.getMonth();
-  let monthSetter = (newMonth) => {
-    currentMonth.innerHTML = newMonth;
+  let monthIndex = currentDate.getmonth();
+  let monthSetter = (newmonth) => {
+    currentmonth.innerHTML = newmonth;
   };
   let monthsInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   monthSetter(monthsInYear[monthIndex]);
@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', calendarHeader, false);
 let monthUp = document.getElementById("monthUp");
 monthUp.addEventListener('click', ()=>{
   for (let i = 0; i < monthsInYear; i++){
-    let singleMonth = monthsInYear[i];
-    if (currentMonth === singleMonth){
+    let singlemonth = monthsInYear[i];
+    if (currentmonth === singlemonth){
       monthSetter(monthsInYear[i + 1]);
-    } else if (currentMonth === "December"){
+    } else if (currentmonth === "December"){
       break;
     }
   }
@@ -43,10 +43,10 @@ monthUp.addEventListener('click', ()=>{
 let monthDown = document.getElementById("monthDown");
 monthDown.addEventListener('click', ()=>{
   for (let i = monthsInYear.length; i < 0; i--){
-    let singleMonth = monthsInYear[i];
-    if (currentMonth === singleMonth){
+    let singlemonth = monthsInYear[i];
+    if (currentmonth === singlemonth){
       monthSetter(monthsInYear[i - 1]);
-    } else if (currentMonth === "January"){
+    } else if (currentmonth === "January"){
       break;
     }
   }
