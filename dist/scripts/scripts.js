@@ -76,35 +76,61 @@ var calendar = function calendar() {
 document.addEventListener('DOMContentLoaded', calendar, false);
 'use strict';
 
-var calendarHeader = function calendarHeader() {
-  var month = document.getElementById('month');
-  var monthSetter = function monthSetter(newMonth) {
-    month.innerHTML = newMonth;
-  };
-  monthSetter('September');
-  var monthArr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  console.log(monthArr[0]);
-  var leftArrow = document.getElementById('left-arrow');
-  var rightArrow = document.getElementById('right-arrow');
-  var monthIndex = 8;
-  leftArrow.addEventListener('click', function () {
-    if (monthIndex > 0) {
-      monthIndex--;
-      monthSetter(monthArr[monthIndex]);
-    }
-  });
-  rightArrow.addEventListener('click', function () {
-    if (monthIndex < monthArr.length - 1) {
-      monthIndex++;
-      monthSetter(monthArr[monthIndex]);
-    }
-  });
-};
-
-document.addEventListener('DOMContentLoaded', calendarHeader, false);
-'use strict';
-
 var list = [];
 var myFunkyFunk = function myFunkyFunk() {
   console.log('the funk');
 };
+'use strict';
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var titleCarouselWrapper = function titleCarouselWrapper() {
+  var currentTitle = document.getElementById("title");
+  var titleDown = document.getElementById('titleDown');
+  var titleUp = document.getElementById('titleUp');
+  var titleCarousel = document.getElementById("title-carousel");
+  //let currentDate = new Date();
+  var titleIndex = 8;
+  //there is a better way to write these two, DRY:
+  var elementBuilder = function elementBuilder(elementType, elementId, appendTo, classes) {
+    var _el$classList;
+
+    var el = document.createElement(elementType);
+    (_el$classList = el.classList).add.apply(_el$classList, _toConsumableArray(classes));
+    el.id = elementId;
+    appendTo.appendChild(el);
+  };
+  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
+  //elementBuilder('p', 'title', titleCarousel);
+  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
+  /*
+  the non-DRY way
+  let la=document.createElement('p');
+  la.classList.add('arrow', 'fas', 'fa-chevron-left');
+  la.id = 'left-arrow';
+  titleCarousel.appendChild(la);
+  let ra=document.createElement('p');
+  ra.classList.add('arrow', 'fas', 'fa-chevron-right');
+  ra.id = 'right-arrow';
+  titleCarousel.appendChild(ra);
+  let titleSetter = (newTitle) => {
+    currenttitle.innerHTML = newTitle;
+  };
+  */
+  var titlesInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  titleSetter(titlesInYear[titleIndex]);
+  titleDown.addEventListener('click', function () {
+    if (titleIndex > 0) {
+      titleIndex--;
+      titleSetter(titlesInYear[titleIndex]);
+    }
+  });
+  titleUp.addEventListener('click', function () {
+    if (titleIndex < titlesInYear.length - 1) {
+      titleIndex++;
+      titleSetter(titlesInYear[titleIndex]);
+    }
+  });
+};
+
+document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);
