@@ -85,38 +85,30 @@ var myFunkyFunk = function myFunkyFunk() {
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var titleCarouselWrapper = function titleCarouselWrapper() {
-  var currentTitle = document.getElementById("title");
-  var titleDown = document.getElementById('titleDown');
-  var titleUp = document.getElementById('titleUp');
   var titleCarousel = document.getElementById("title-carousel");
-  //let currentDate = new Date();
   var titleIndex = 8;
-  //there is a better way to write these two, DRY:
   var elementBuilder = function elementBuilder(elementType, elementId, appendTo, classes) {
-    var _el$classList;
-
     var el = document.createElement(elementType);
-    (_el$classList = el.classList).add.apply(_el$classList, _toConsumableArray(classes));
+    if (classes) {
+      var _el$classList;
+
+      (_el$classList = el.classList).add.apply(_el$classList, _toConsumableArray(classes));
+    }
     el.id = elementId;
     appendTo.appendChild(el);
   };
   elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
-  //elementBuilder('p', 'title', titleCarousel);
+  elementBuilder('p', 'title', titleCarousel);
   elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
-  /*
-  the non-DRY way
-  let la=document.createElement('p');
-  la.classList.add('arrow', 'fas', 'fa-chevron-left');
-  la.id = 'left-arrow';
-  titleCarousel.appendChild(la);
-  let ra=document.createElement('p');
-  ra.classList.add('arrow', 'fas', 'fa-chevron-right');
-  ra.id = 'right-arrow';
-  titleCarousel.appendChild(ra);
-  let titleSetter = (newTitle) => {
-    currenttitle.innerHTML = newTitle;
+
+  var titleDown = document.getElementById('left-arrow');
+  var titleUp = document.getElementById('right-arrow');
+  var currentTitle = document.getElementById("title");
+
+  var titleSetter = function titleSetter(newTitle) {
+    currentTitle.innerHTML = newTitle;
   };
-  */
+
   var titlesInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   titleSetter(titlesInYear[titleIndex]);
   titleDown.addEventListener('click', function () {

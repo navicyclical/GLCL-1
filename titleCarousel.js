@@ -6,7 +6,7 @@ let calendarHeader = () => {
   let currentDate = new Date();
   let titleIndex = currentDate.getMonth();
   let titleSetter = (newTitle) => {
-    currenttitle.innerHTML = newTitle;
+    currentTitle.innerHTML = newTitle;
   };
   let titlesInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   titleSetter(titlesInYear[titleIndex]);

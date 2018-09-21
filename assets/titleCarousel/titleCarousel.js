@@ -1,34 +1,26 @@
 let titleCarouselWrapper = () => {
-  let currentTitle = document.getElementById("title");
-  let titleDown = document.getElementById('titleDown');
-  let titleUp = document.getElementById('titleUp');
   let titleCarousel = document.getElementById("title-carousel");
-  //let currentDate = new Date();
   let titleIndex = 8;
-  //there is a better way to write these two, DRY:
-  let elementBuilder = (elementType, elementId, appendTo, classes) => {
+  const elementBuilder = (elementType, elementId, appendTo, classes) => {
     let el = document.createElement(elementType);
-    el.classList.add(...classes);
+    if (classes){
+        el.classList.add(...classes);
+    }
     el.id = elementId;
     appendTo.appendChild(el);
   }
   elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
-  //elementBuilder('p', 'title', titleCarousel);
+  elementBuilder('p', 'title', titleCarousel);
   elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
-  /*
-  the non-DRY way
-  let la=document.createElement('p');
-  la.classList.add('arrow', 'fas', 'fa-chevron-left');
-  la.id = 'left-arrow';
-  titleCarousel.appendChild(la);
-  let ra=document.createElement('p');
-  ra.classList.add('arrow', 'fas', 'fa-chevron-right');
-  ra.id = 'right-arrow';
-  titleCarousel.appendChild(ra);
+
+  let titleDown = document.getElementById('left-arrow');
+  let titleUp = document.getElementById('right-arrow');
+  let currentTitle = document.getElementById("title");
+
   let titleSetter = (newTitle) => {
-    currenttitle.innerHTML = newTitle;
+    currentTitle.innerHTML = newTitle;
   };
-  */
+
   let titlesInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   titleSetter(titlesInYear[titleIndex]);
   titleDown.addEventListener('click', ()=>{
