@@ -213,7 +213,18 @@ li {
   font-family: 'Nunito', sans-serif;
 }
 
+<<<<<<< HEAD
+li {
+  text-decoration: none;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+.calendar-header {
+=======
 .title-carousel {
+>>>>>>> 554b02c7b37a9e6b6a516c54926263d0d5d79795
   display: flex;
   width: 100%;
   background-color: lightgray;

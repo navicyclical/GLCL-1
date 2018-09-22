@@ -99,6 +99,8 @@ var calendar = function calendar() {
 document.addEventListener('DOMContentLoaded', calendar, false);
 'use strict';
 
+<<<<<<< HEAD
+=======
 var fn = function fn() {
 	// adding p tag for minus
 	var minus = document.getElementsByClassName('minus');
@@ -121,6 +123,7 @@ var fn = function fn() {
 document.addEventListener('DOMContentLoaded', fn, false);
 'use strict';
 
+>>>>>>> 554b02c7b37a9e6b6a516c54926263d0d5d79795
 var list = [];
 var myFunkyFunk = function myFunkyFunk() {
   console.log('the funk');
@@ -130,8 +133,13 @@ var myFunkyFunk = function myFunkyFunk() {
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var titleCarouselWrapper = function titleCarouselWrapper() {
+<<<<<<< HEAD
+  var titleCarousel = document.getElementById("title-carousel");
+  var titleIndex = 8;
+=======
   var titleCarousel = document.getElementById('title-carousel');
 
+>>>>>>> 554b02c7b37a9e6b6a516c54926263d0d5d79795
   var elementBuilder = function elementBuilder(elementType, elementId, appendTo, classes) {
     var el = document.createElement(elementType);
     if (classes) {
@@ -142,11 +150,36 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     el.id = elementId;
     appendTo.appendChild(el);
   };
+<<<<<<< HEAD
+=======
 
+>>>>>>> 554b02c7b37a9e6b6a516c54926263d0d5d79795
   elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
   elementBuilder('p', 'title', titleCarousel);
   elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
 
+<<<<<<< HEAD
+  var titleDown = document.getElementById('left-arrow');
+  var titleUp = document.getElementById('right-arrow');
+  var currentTitle = document.getElementById("title");
+
+  var titleSetter = function titleSetter(newTitle) {
+    currentTitle.innerHTML = newTitle;
+  };
+
+  var titlesInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  titleSetter(titlesInYear[titleIndex]);
+  titleDown.addEventListener('click', function () {
+    if (titleIndex > 0) {
+      titleIndex--;
+      titleSetter(titlesInYear[titleIndex]);
+    }
+  });
+  titleUp.addEventListener('click', function () {
+    if (titleIndex < titlesInYear.length - 1) {
+      titleIndex++;
+      titleSetter(titlesInYear[titleIndex]);
+=======
   var title = document.getElementById('title');
   var titleSetter = function titleSetter(newTitle) {
     title.innerHTML = newTitle;
@@ -169,6 +202,7 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     if (titleIndex < titleArr.length - 1) {
       titleIndex++;
       titleSetter(titleArr[titleIndex]);
+>>>>>>> 554b02c7b37a9e6b6a516c54926263d0d5d79795
     }
   });
 };
