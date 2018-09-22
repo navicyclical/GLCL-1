@@ -1,6 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://fonts.googleapis.com/css?family=Nunito");
+#calendar-head,
+.calendar-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+#calendar-head p,
+.calendar-row p {
+  width: 100%;
+  text-align: center;
+}
 * {
   font-family: 'Nunito', sans-serif;
 }
@@ -191,17 +202,6 @@
 .button.square i.goldcheck {
   color: gold;
 }
-#calendar-head,
-.calendar-row {
-  display: flex;
-  justify-content: space-around;
-}
-
-#calendar-head p,
-.calendar-row p {
-  width: 100%;
-  text-align: center;
-}
 * {
   font-family: 'Nunito', sans-serif;
 }
@@ -213,9 +213,20 @@ li {
   font-family: 'Nunito', sans-serif;
 }
 
+<<<<<<< HEAD
+li {
+  text-decoration: none;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
 .calendar-header {
+=======
+.title-carousel {
+>>>>>>> 554b02c7b37a9e6b6a516c54926263d0d5d79795
   display: flex;
-  width: 250px;
+  width: 100%;
   background-color: lightgray;
   justify-content: space-around;
   color: white;
