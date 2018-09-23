@@ -14,10 +14,10 @@ let calendar = () => {
   const currentYear = currentTime.getFullYear();
 
   const lastMonth = (year, month, dayOfWeek) => {
-    const previousMonth = month - 1;
+    let previousMonth = month - 1;
     let daysInPreviousMonth = (y, p) => {
       let previousMonthArr = [];
-      const ld = lastDay(y, p);
+      let ld = lastDay(y, p);
       let i = 0;
       while (i < daysOfTheWeek.length){
         previousMonthArr.push(ld);
@@ -33,15 +33,7 @@ let calendar = () => {
       return daysInPreviousMonth(year, previousMonth);
     }
   }
-  const lastMonth = (year, month, dayOfWeek) => {
-    const previousMonth = month - 1;
-    const daysInPreviousMonth = (y,p) => {
-      let previousMonthArr = [];
-      let ld = lastDay(y, p);
-      let i = 0;
 
-    }
-  }
   const daysOfTheWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const calendarHead = document.getElementById('calendar-head');
   const populateCalendarHead = () => {
