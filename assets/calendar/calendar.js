@@ -12,8 +12,18 @@ let calendar = () => {
   //https://stackoverflow.com/a/6002265/5885911
   //Use const rather than let or var, we use const when a variable doesn't get reassigned or updated overtime.
   //Since these are functions, we don't expect the functions to change so we can make them constants.
+  const currentTime = new Date();
 
+  const currentDay = (currentTime) => {
+    return currentTime.newDate();
+  }
+  const currentMonth = (currentTime) => {
+    return currentTime.getMonth() + 1;
+  }
 
+  const currentYear = (currentDate) => {
+    return currentDate.getFullYear();
+  }
   //TODO: Create the lastMonth function which takes the arguments, "year", "month", "dayOfWeek"
   //Create the previousMonth variable which is equal to month-1
   //Create the daysInPreviousMonth function which takes two arguments, "y", "p".
@@ -36,7 +46,15 @@ let calendar = () => {
   //else
     //return the daysInPreviousMonth function which takes the arguments year and previousMonth
 //end lastMonth function
-
+const lastMonth = (year, month, dayOfWeek) => {
+  const previousMonth = month - 1;
+  const daysInPreviousMonth = (y,p) => {
+    let previousMonthArr = [];
+    let ld = lastDay(y, p);
+    let i = 0;
+    
+  }
+}
 
 
 
