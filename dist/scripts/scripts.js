@@ -82,10 +82,11 @@ var calendar = function calendar() {
   // let titleIndex = Number(titleCarousel.getAttribute('title-starting-index'));
 
   var calendarBody = document.getElementById('calendar-body');
-  var populateCalendarBody = function populateCalendarBody() {
-    var currentDaysInMonth = lastDay(2018, 9);
-    var firstDayOfMonth = firstDay(2018, 9);
-    var lastMonthArr = lastMonth(currentYear, currentMonth, firstDayOfMonth);
+  var populateCalendarBody = function populateCalendarBody(selectedYear, selectedMonth) {
+    calendarBody.innerHTML = '';
+    var currentDaysInMonth = lastDay(selectedYear, selectedMonth);
+    var firstDayOfMonth = firstDay(selectedYear, selectedMonth);
+    var lastMonthArr = lastMonth(selectedYear, selectedMonth, firstDayOfMonth);
     var daysInRow = 7;
     var totalRows = 6;
     var currentRows = 0;
@@ -117,11 +118,27 @@ var calendar = function calendar() {
       currentRows++;
     }
   };
-  populateCalendarBody();
+  populateCalendarBody(currentYear, currentMonth);
   var calendar = document.getElementById('calendar');
-  // console.log(calendar);
-  calendar.addEventListener('arrowClick', function () {
-    console.log('arrow clicked calllllll!');
+  var currentMonthIndex = currentMonth.valueOf();
+  var currentYearIndex = currentYear.valueOf();
+
+  calendar.addEventListener('monthChange', function (event) {
+    // change the current month and if neccessary, the current year
+    var changeDirection = event.detail.changeDirection;
+    if (changeDirection === 'left') {
+      currentMonthIndex = currentMonthIndex - 1;
+      // console.log('currentMonthIndex', currentMonthIndex);
+      populateCalendarBody(currentYearIndex, currentMonthIndex);
+    } else if (changeDirection === 'right') {
+      currentMonthIndex = currentMonthIndex + 1;
+      // console.log('currentMonthIndex', currentMonthIndex);
+      populateCalendarBody(currentYearIndex, currentMonthIndex);
+    }
+    //if(changedirection === 'left'){
+    //  go back one month
+    //if change direction === 'right'
+    //  go forward one month
   }, true);
 };
 
@@ -179,9 +196,6 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
       titleSetter(titleArr[titleIndex]);
     }
     leftArrow.dispatchEvent(arrowClick('left'));
-  });
-  leftArrow.addEventListener('arrowClick', function (event) {
-    console.log('suspicious', event);
   });
 
   rightArrow.addEventListener('click', function () {
