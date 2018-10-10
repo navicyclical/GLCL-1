@@ -1,9 +1,9 @@
 let titleCarouselWrapper = () => {
-  let titleCarousel = document.getElementById('title-carousel'); //TODO: top
+  let titleCarousel = document.getElementById('title-carousel'); //TODO: CLEANUP: top
 
   //TODO: CLEANUP: create an empty arrow function called carouselBuilder
 
-  const elementBuilder = (elementType, elementId, appendTo, classes) => {//TODO: top
+  const elementBuilder = (elementType, elementId, appendTo, classes) => {//TODO: CLEANUP: top
     const el = document.createElement(elementType);
     if(classes){
       el.classList.add(...classes);
@@ -16,8 +16,8 @@ let titleCarouselWrapper = () => {
   elementBuilder('p', 'title', titleCarousel);
   elementBuilder('p', 'right-arrow', titleCarousel, ['arrow','fas','fa-chevron-right']);
 
-  let title = document.getElementById('title'); //TODO:top
-  let titleSetter = (newTitle) => { //TODO:top
+  let title = document.getElementById('title'); //TODO: CLEANUP: top
+  let titleSetter = (newTitle) => { //TODO: CLEANUP: top
     title.innerHTML = newTitle;
   };
 
