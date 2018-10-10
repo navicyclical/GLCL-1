@@ -55,8 +55,6 @@ let calendar = () => {
   }
   populateCalendarHead();
 
-  // let titleIndex = Number(titleCarousel.getAttribute('title-starting-index'));
-
   const calendarBody = document.getElementById('calendar-body');
   const populateCalendarBody = (selectedYear, selectedMonth) => {
     calendarBody.innerHTML = '';
@@ -106,17 +104,13 @@ let calendar = () => {
     const changeDirection = event.detail.changeDirection;
     if(changeDirection === 'left'){
       currentMonthIndex=currentMonthIndex-1;
-      // console.log('currentMonthIndex', currentMonthIndex);
+      //TODO: if month is 0, decrement the year and set the month to december
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }else if(changeDirection === 'right'){
       currentMonthIndex=currentMonthIndex+1;
-      // console.log('currentMonthIndex', currentMonthIndex);
+      //TODO: if month is 13, increment the year and set the month to january
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }
-    //if(changedirection === 'left'){
-    //  go back one month
-    //if change direction === 'right'
-    //  go forward one month
   }, true);
 };
 
