@@ -1,9 +1,5 @@
 let titleCarouselWrapper = () => {
-  let titleCarousel = document.getElementById('title-carousel'); //TODO: CLEANUP: top
-
-  //TODO: CLEANUP: create an empty arrow function called carouselBuilder
-
-  const elementBuilder = (elementType, elementId, appendTo, classes) => {//TODO: CLEANUP: top
+  const elementBuilder = (elementType, elementId, appendTo, classes) => {
     const el = document.createElement(elementType);
     if(classes){
       el.classList.add(...classes);
@@ -11,15 +7,18 @@ let titleCarouselWrapper = () => {
     el.id = elementId;
     appendTo.appendChild(el);
   }
+  let titleCarousel = document.getElementById('title-carousel');
+  let title = document.getElementById('title');
+  let titleSetter = (newTitle) => {
+    title.innerHTML = newTitle;
+  };
+  //TODO: CLEANUP: create an empty arrow function called carouselBuilder
 
   elementBuilder('p', 'left-arrow', titleCarousel, ['arrow','fas','fa-chevron-left']);//TODO: CLEANUP: carouselBuilder
   elementBuilder('p', 'title', titleCarousel);
   elementBuilder('p', 'right-arrow', titleCarousel, ['arrow','fas','fa-chevron-right']);
 
-  let title = document.getElementById('title'); //TODO: CLEANUP: top
-  let titleSetter = (newTitle) => { //TODO: CLEANUP: top
-    title.innerHTML = newTitle;
-  };
+
 
   let titleArr = JSON.parse(titleCarousel.getAttribute('title-arr')); //TODO: MAKE IT DYNAMIC: delete
   let leftArrow = document.getElementById('left-arrow'); //TODO: CLEANUP: place in carouselEvents

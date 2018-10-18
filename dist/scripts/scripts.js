@@ -1,27 +1,5 @@
 'use strict';
 
-var fn = function fn() {
-	// adding p tag for minus
-	var minus = document.getElementsByClassName('minus');
-
-	for (var i = 0; i < minus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '-';
-		minus[i].appendChild(e);
-	}
-
-	//adding p tag for plus
-	var plus = document.getElementsByClassName('plus');
-	for (var i = 0; i < plus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '+';
-		plus[i].appendChild(e);
-	}
-};
-
-document.addEventListener('DOMContentLoaded', fn, false);
-'use strict';
-
 var calendar = function calendar() {
 
   // Returns the first weekday of a month as an integer, e.g. 6 = Saturday
@@ -79,8 +57,6 @@ var calendar = function calendar() {
   };
   populateCalendarHead();
 
-  // let titleIndex = Number(titleCarousel.getAttribute('title-starting-index'));
-
   var calendarBody = document.getElementById('calendar-body');
   var populateCalendarBody = function populateCalendarBody(selectedYear, selectedMonth) {
     calendarBody.innerHTML = '';
@@ -128,21 +104,47 @@ var calendar = function calendar() {
     var changeDirection = event.detail.changeDirection;
     if (changeDirection === 'left') {
       currentMonthIndex = currentMonthIndex - 1;
-      // console.log('currentMonthIndex', currentMonthIndex);
+      //TODO: if month is 0, decrement the year and set the month to december
+      if (currentMonth === 0) {
+        currentYearIndex = currentYearIndex - 1;
+        currentMonthIndex = 12;
+      }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     } else if (changeDirection === 'right') {
       currentMonthIndex = currentMonthIndex + 1;
-      // console.log('currentMonthIndex', currentMonthIndex);
+      //TODO: if month is 13, increment the year and set the month to january
+      if (currentMonth === 13) {
+        currentYearIndex = currentYearIndex + 1;
+        currentMonthIndex = 1;
+      }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }
-    //if(changedirection === 'left'){
-    //  go back one month
-    //if change direction === 'right'
-    //  go forward one month
   }, true);
 };
 
 document.addEventListener('DOMContentLoaded', calendar, false);
+'use strict';
+
+var fn = function fn() {
+	// adding p tag for minus
+	var minus = document.getElementsByClassName('minus');
+
+	for (var i = 0; i < minus.length; i++) {
+		var e = document.createElement('p');
+		e.innerHTML = '-';
+		minus[i].appendChild(e);
+	}
+
+	//adding p tag for plus
+	var plus = document.getElementsByClassName('plus');
+	for (var i = 0; i < plus.length; i++) {
+		var e = document.createElement('p');
+		e.innerHTML = '+';
+		plus[i].appendChild(e);
+	}
+};
+
+document.addEventListener('DOMContentLoaded', fn, false);
 'use strict';
 
 var list = [];
@@ -154,8 +156,6 @@ var myFunkyFunk = function myFunkyFunk() {
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var titleCarouselWrapper = function titleCarouselWrapper() {
-  var titleCarousel = document.getElementById('title-carousel');
-
   var elementBuilder = function elementBuilder(elementType, elementId, appendTo, classes) {
     var el = document.createElement(elementType);
     if (classes) {
@@ -166,22 +166,25 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     el.id = elementId;
     appendTo.appendChild(el);
   };
-
-  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']);
-  elementBuilder('p', 'title', titleCarousel);
-  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
-
+  var titleCarousel = document.getElementById('title-carousel');
   var title = document.getElementById('title');
   var titleSetter = function titleSetter(newTitle) {
     title.innerHTML = newTitle;
   };
+  //TODO: CLEANUP: create an empty arrow function called carouselBuilder
 
-  var titleArr = JSON.parse(titleCarousel.getAttribute('title-arr'));
-  var leftArrow = document.getElementById('left-arrow');
-  var rightArrow = document.getElementById('right-arrow');
-  var titleIndex = Number(titleCarousel.getAttribute('title-starting-index'));
+  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']); //TODO: CLEANUP: carouselBuilder
+  elementBuilder('p', 'title', titleCarousel);
+  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
 
-  titleSetter(titleArr[titleIndex]);
+  var titleArr = JSON.parse(titleCarousel.getAttribute('title-arr')); //TODO: MAKE IT DYNAMIC: delete
+  var leftArrow = document.getElementById('left-arrow'); //TODO: CLEANUP: place in carouselEvents
+  var rightArrow = document.getElementById('right-arrow'); //TODO: CLEANUP: place in carouselEvents
+  var titleIndex = Number(titleCarousel.getAttribute('title-starting-index')); //TODO: MAKE IT DYNAMIC: delete
+
+  titleSetter(titleArr[titleIndex]); //TODO: CLEANUP: carouselBuilder
+
+  //TODO: CLEANUP: create an arrow function called carouselEvents
 
   var arrowClick = function arrowClick(direction) {
     return new CustomEvent('arrowClick', {
@@ -194,7 +197,7 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     if (titleIndex > 0) {
       titleIndex--;
       titleSetter(titleArr[titleIndex]);
-    }
+    } //TODO: LOOPS: Else, set the title index back to the end of the array then call title setter
     leftArrow.dispatchEvent(arrowClick('left'));
   });
 
@@ -202,9 +205,18 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     if (titleIndex < titleArr.length - 1) {
       titleIndex++;
       titleSetter(titleArr[titleIndex]);
-    }
+    } //TODO: LOOPS: Else, set the title index back to the beggining of the array then call title setter
     rightArrow.dispatchEvent(arrowClick('right'));
   });
+
+  //TODO: MAKE IT DYNAMIC: Create an event lister for "carouselInitialState" pass an event to the anonymous function that the add event listener takes
+  //TODO: MAKE IT DYNAMIC: console log the event.detail and see what it outputs
+  //TODO: MAKE IT DYNAMIC: create a (const) titleArr equal to the related field in the event object
+  //TODO: MAKE IT DYNAMIC: create a (const) loops equal to the related field in the event object
+  //TODO: MAKE IT DYNAMIC: create a (let) titleIndex equal to the related field in the event object
+  //TODO: MAKE IT DYNAMIC: call carouselBuilder and pass titleArr and titleIndex to it
+  //TODO: MAKE IT DYNAMIC: call carouselEvents and pass loops titleIndex and titleArr to it
+
 };
 
 document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);

@@ -1,9 +1,11 @@
 let dashboard = () => {
   const dashBody = document.getElementById('body');
   const calendar = document.getElementById('calendar');
-  //TODO: MAKE IT DYNAMIC: get title carousel by id
+  const titleCarousel = document.getElementById('title-carousel');
   //TODO: MAKE IT DYNAMIC: copy current time const from calendar.js
+  const currentTime = ;
   //TODO: MAKE IT DYNAMIC: copy current month const from calendar.js
+  const currentMonth = ;
   //TODO: MAKE IT DYNAMIC: create monthsInYear array and make it equal to an array of 12 strings which are the names of the 12 months of the year in order
   const monthChange = (direction) => {
     return new CustomEvent('monthChange', {
