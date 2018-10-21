@@ -196,13 +196,6 @@
   font-family: 'Nunito', sans-serif;
 }
 
-li {
-  text-decoration: none;
-}
-* {
-  font-family: 'Nunito', sans-serif;
-}
-
 #calendar-head,
 .calendar-row {
   display: flex;
@@ -218,6 +211,13 @@ li {
 #calendar-head .grayedOut,
 .calendar-row .grayedOut {
   color: lightgray;
+}
+* {
+  font-family: 'Nunito', sans-serif;
+}
+
+li {
+  text-decoration: none;
 }
 * {
   font-family: 'Nunito', sans-serif;

@@ -13,21 +13,25 @@ let titleCarouselWrapper = () => {
     title.innerHTML = newTitle;
   };
   //TODO: CLEANUP: create an empty arrow function called carouselBuilder
-
-  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow','fas','fa-chevron-left']);//TODO: CLEANUP: carouselBuilder
-  elementBuilder('p', 'title', titleCarousel);
-  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow','fas','fa-chevron-right']);
-
-
+  let carouselBuilder = () => {
+    elementBuilder('p', 'left-arrow', titleCarousel, ['arrow','fas','fa-chevron-left']);//TODO: CLEANUP: carouselBuilder
+    elementBuilder('p', 'title', titleCarousel);
+    elementBuilder('p', 'right-arrow', titleCarousel, ['arrow','fas','fa-chevron-right']);
+    let leftArrow = document.getElementById('left-arrow'); //TODO: CLEANUP: place in carouselEvents
+    let rightArrow = document.getElementById('right-arrow'); //TODO: CLEANUP: place in carouselEvents
+    titleSetter(titleArr[titleIndex]);//TODO: CLEANUP: carouselBuilder
+  }
 
   let titleArr = JSON.parse(titleCarousel.getAttribute('title-arr')); //TODO: MAKE IT DYNAMIC: delete
-  let leftArrow = document.getElementById('left-arrow'); //TODO: CLEANUP: place in carouselEvents
-  let rightArrow = document.getElementById('right-arrow'); //TODO: CLEANUP: place in carouselEvents
+
   let titleIndex = Number(titleCarousel.getAttribute('title-starting-index')); //TODO: MAKE IT DYNAMIC: delete
 
   titleSetter(titleArr[titleIndex]);//TODO: CLEANUP: carouselBuilder
 
   //TODO: CLEANUP: create an arrow function called carouselEvents
+  let carouselEvents = () => {
+
+  }
 
   const arrowClick = (direction) => {
     return new CustomEvent('arrowClick', {
@@ -41,6 +45,10 @@ let titleCarouselWrapper = () => {
       titleIndex--;
       titleSetter(titleArr[titleIndex]);
     } //TODO: LOOPS: Else, set the title index back to the end of the array then call title setter
+    else {
+      titleIndex = titleIndex.length - 1;
+      titleSetter();
+    }
     leftArrow.dispatchEvent(arrowClick('left'));
   });
 

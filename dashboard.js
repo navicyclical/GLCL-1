@@ -2,11 +2,9 @@ let dashboard = () => {
   const dashBody = document.getElementById('body');
   const calendar = document.getElementById('calendar');
   const titleCarousel = document.getElementById('title-carousel');
-  //TODO: MAKE IT DYNAMIC: copy current time const from calendar.js
-  const currentTime = ;
-  //TODO: MAKE IT DYNAMIC: copy current month const from calendar.js
-  const currentMonth = ;
-  //TODO: MAKE IT DYNAMIC: create monthsInYear array and make it equal to an array of 12 strings which are the names of the 12 months of the year in order
+  const currentTime = new Date();
+  const currentMonth = currentTime.getMonth() + 1;
+  let monthsInYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   const monthChange = (direction) => {
     return new CustomEvent('monthChange', {
       bubbles: false,
@@ -21,8 +19,19 @@ let dashboard = () => {
   //TODO: MAKE IT DYNAMIC: titleArr with the value monthsInYear
   //TODO: MAKE IT DYNAMIC: titleIndex with the value currentMonth
   //TODO: MAKE IT DYNAMIC: loops with the value true
+  const carouselInitialState = (direction) => {
+    return new CustomEvent('monthChange', {
+      bubbles: false,
+      detail: {
+        titleArr: monthsInYear,
+        titleIndex: currentMonth,
+        loops: true
+      }
+    });
+  }
 
   //TODO: MAKE IT DYNAMIC: titleCarousel.dispatchEvent(carouselInitialState());
+  titleCarousel.dispatchEvent(carouselInitialState());
 
 
   dashBody.addEventListener('arrowClick', function(event){

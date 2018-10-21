@@ -1,5 +1,27 @@
 'use strict';
 
+var fn = function fn() {
+	// adding p tag for minus
+	var minus = document.getElementsByClassName('minus');
+
+	for (var i = 0; i < minus.length; i++) {
+		var e = document.createElement('p');
+		e.innerHTML = '-';
+		minus[i].appendChild(e);
+	}
+
+	//adding p tag for plus
+	var plus = document.getElementsByClassName('plus');
+	for (var i = 0; i < plus.length; i++) {
+		var e = document.createElement('p');
+		e.innerHTML = '+';
+		plus[i].appendChild(e);
+	}
+};
+
+document.addEventListener('DOMContentLoaded', fn, false);
+'use strict';
+
 var calendar = function calendar() {
 
   // Returns the first weekday of a month as an integer, e.g. 6 = Saturday
@@ -125,28 +147,6 @@ var calendar = function calendar() {
 document.addEventListener('DOMContentLoaded', calendar, false);
 'use strict';
 
-var fn = function fn() {
-	// adding p tag for minus
-	var minus = document.getElementsByClassName('minus');
-
-	for (var i = 0; i < minus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '-';
-		minus[i].appendChild(e);
-	}
-
-	//adding p tag for plus
-	var plus = document.getElementsByClassName('plus');
-	for (var i = 0; i < plus.length; i++) {
-		var e = document.createElement('p');
-		e.innerHTML = '+';
-		plus[i].appendChild(e);
-	}
-};
-
-document.addEventListener('DOMContentLoaded', fn, false);
-'use strict';
-
 var list = [];
 var myFunkyFunk = function myFunkyFunk() {
   console.log('the funk');
@@ -172,19 +172,23 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     title.innerHTML = newTitle;
   };
   //TODO: CLEANUP: create an empty arrow function called carouselBuilder
-
-  elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']); //TODO: CLEANUP: carouselBuilder
-  elementBuilder('p', 'title', titleCarousel);
-  elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
+  var carouselBuilder = function carouselBuilder() {
+    elementBuilder('p', 'left-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-left']); //TODO: CLEANUP: carouselBuilder
+    elementBuilder('p', 'title', titleCarousel);
+    elementBuilder('p', 'right-arrow', titleCarousel, ['arrow', 'fas', 'fa-chevron-right']);
+    var leftArrow = document.getElementById('left-arrow'); //TODO: CLEANUP: place in carouselEvents
+    var rightArrow = document.getElementById('right-arrow'); //TODO: CLEANUP: place in carouselEvents
+    titleSetter(titleArr[titleIndex]); //TODO: CLEANUP: carouselBuilder
+  };
 
   var titleArr = JSON.parse(titleCarousel.getAttribute('title-arr')); //TODO: MAKE IT DYNAMIC: delete
-  var leftArrow = document.getElementById('left-arrow'); //TODO: CLEANUP: place in carouselEvents
-  var rightArrow = document.getElementById('right-arrow'); //TODO: CLEANUP: place in carouselEvents
+
   var titleIndex = Number(titleCarousel.getAttribute('title-starting-index')); //TODO: MAKE IT DYNAMIC: delete
 
   titleSetter(titleArr[titleIndex]); //TODO: CLEANUP: carouselBuilder
 
   //TODO: CLEANUP: create an arrow function called carouselEvents
+  var carouselEvents = function carouselEvents() {};
 
   var arrowClick = function arrowClick(direction) {
     return new CustomEvent('arrowClick', {
@@ -198,6 +202,10 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
       titleIndex--;
       titleSetter(titleArr[titleIndex]);
     } //TODO: LOOPS: Else, set the title index back to the end of the array then call title setter
+    else {
+        titleIndex = titleIndex.length - 1;
+        titleSetter();
+      }
     leftArrow.dispatchEvent(arrowClick('left'));
   });
 
