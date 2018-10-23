@@ -107,7 +107,7 @@ let calendar = () => {
       //TODO: if month is 0, decrement the year and set the month to december
       if (currentMonth === 0){
         currentYearIndex = currentYearIndex - 1;
-        currentMonthIndex = 12;
+        currentMonthIndex = "December";
       }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }else if(changeDirection === 'right'){
@@ -115,7 +115,7 @@ let calendar = () => {
       //TODO: if month is 13, increment the year and set the month to january
       if (currentMonth === 13){
         currentYearIndex = currentYearIndex + 1;
-        currentMonthIndex = 1;
+        currentMonthIndex = "January";
       }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }

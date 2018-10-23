@@ -129,7 +129,7 @@ var calendar = function calendar() {
       //TODO: if month is 0, decrement the year and set the month to december
       if (currentMonth === 0) {
         currentYearIndex = currentYearIndex - 1;
-        currentMonthIndex = 12;
+        currentMonthIndex = "December";
       }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     } else if (changeDirection === 'right') {
@@ -137,7 +137,7 @@ var calendar = function calendar() {
       //TODO: if month is 13, increment the year and set the month to january
       if (currentMonth === 13) {
         currentYearIndex = currentYearIndex + 1;
-        currentMonthIndex = 1;
+        currentMonthIndex = "January";
       }
       populateCalendarBody(currentYearIndex, currentMonthIndex);
     }
@@ -181,12 +181,6 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
     titleSetter(titleArr[titleIndex]); //TODO: CLEANUP: carouselBuilder
   };
 
-  var titleArr = JSON.parse(titleCarousel.getAttribute('title-arr')); //TODO: MAKE IT DYNAMIC: delete
-
-  var titleIndex = Number(titleCarousel.getAttribute('title-starting-index')); //TODO: MAKE IT DYNAMIC: delete
-
-  titleSetter(titleArr[titleIndex]); //TODO: CLEANUP: carouselBuilder
-
   //TODO: CLEANUP: create an arrow function called carouselEvents
   var carouselEvents = function carouselEvents() {};
 
@@ -214,6 +208,10 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
       titleIndex++;
       titleSetter(titleArr[titleIndex]);
     } //TODO: LOOPS: Else, set the title index back to the beggining of the array then call title setter
+    else {
+        titleIndex = titleIndex[0];
+        titleSetter();
+      }
     rightArrow.dispatchEvent(arrowClick('right'));
   });
 
@@ -225,6 +223,7 @@ var titleCarouselWrapper = function titleCarouselWrapper() {
   //TODO: MAKE IT DYNAMIC: call carouselBuilder and pass titleArr and titleIndex to it
   //TODO: MAKE IT DYNAMIC: call carouselEvents and pass loops titleIndex and titleArr to it
 
+  carouselInitialState.addEventListener();
 };
 
 document.addEventListener('DOMContentLoaded', titleCarouselWrapper, false);

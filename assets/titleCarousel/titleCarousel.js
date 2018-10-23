@@ -22,11 +22,6 @@ let titleCarouselWrapper = () => {
     titleSetter(titleArr[titleIndex]);//TODO: CLEANUP: carouselBuilder
   }
 
-  let titleArr = JSON.parse(titleCarousel.getAttribute('title-arr')); //TODO: MAKE IT DYNAMIC: delete
-
-  let titleIndex = Number(titleCarousel.getAttribute('title-starting-index')); //TODO: MAKE IT DYNAMIC: delete
-
-  titleSetter(titleArr[titleIndex]);//TODO: CLEANUP: carouselBuilder
 
   //TODO: CLEANUP: create an arrow function called carouselEvents
   let carouselEvents = () => {
@@ -57,6 +52,10 @@ let titleCarouselWrapper = () => {
       titleIndex++;
       titleSetter(titleArr[titleIndex]);
     } //TODO: LOOPS: Else, set the title index back to the beggining of the array then call title setter
+    else {
+        titleIndex = titleIndex[0];
+        titleSetter();
+    }
     rightArrow.dispatchEvent(arrowClick('right'));
   });
 
@@ -67,6 +66,8 @@ let titleCarouselWrapper = () => {
   //TODO: MAKE IT DYNAMIC: create a (let) titleIndex equal to the related field in the event object
   //TODO: MAKE IT DYNAMIC: call carouselBuilder and pass titleArr and titleIndex to it
   //TODO: MAKE IT DYNAMIC: call carouselEvents and pass loops titleIndex and titleArr to it
+
+  carouselInitialState.addEventListener();
 
 
 
